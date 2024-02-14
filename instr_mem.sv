@@ -1,6 +1,6 @@
 module instr_mem(input wire clk,
                    input wire reset,
-                   input wire  [31:0] base_address,  
+                   input wire  [6:0] base_address,  
                    output wire [31:0] data_out);
   
   reg [7:0] imem [79:0]; // 32*20 instruction memory size
