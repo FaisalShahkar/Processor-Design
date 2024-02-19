@@ -2,17 +2,17 @@ module memory_2KB (
   input wire clk,
   input wire write_enable,
   input wire [10:0] address,
-  input wire [7:0] write_data,
-  output reg [7:0] read_data
+  input wire [31:0] write_data,
+  output reg [31:0] read_data
 );
 
   reg [7:0] mem [0:2047]; // 2KB memory array byte addressable
 
   always @(posedge clk) begin
     if (write_enable) begin
-      mem[address] <= write_data;
+      {mem[base_address+3].mem[base_address+2].mem[base_address+1].mem[base_address]} <= write_data;
     end
-    read_data <= mem[address];
+    read_data <={mem[base_address+3].mem[base_address+2].mem[base_address+1].mem[base_address]};
   end
 
 endmodule
