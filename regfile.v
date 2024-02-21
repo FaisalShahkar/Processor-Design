@@ -3,7 +3,7 @@ module regfile (
   input wire [3:0] readAddr2, // Second read address
   input wire [3:0] writeAddr, // Write address
   input wire [31:0] writeData, // Data to be written
-  input wire we, // Write enable signal
+  input wire regwe, // Write enable signal
 
   output reg [31:0] readData1, // Output data from the first read address
   output reg [31:0] readData2 // Output data from the second read address
