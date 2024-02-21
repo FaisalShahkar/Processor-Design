@@ -1,10 +1,10 @@
-module datapath(clk, reset, we, 
+module datapath(clk, reset, regwe, dmemwe 
                 rs2sel, regsel, PCsel, 
                 ALUControl,  Instr
                ); 
   input clk, reset;
 
-    input we;
+    input dmemwe, regwe;
     input rs2sel;
     input [1:0] regsel;
     input [3:0] ALUControl;
@@ -49,7 +49,7 @@ module datapath(clk, reset, we,
         .readAddr2(Instr[24:20]),
         .writeAddr(Instr[11:7]),
         .writeData(writeData),
-        .regwe(we),
+    .regwe(regwe),
         .clk(clk),
         .reset(reset),
         .readData1(readData1),
@@ -58,7 +58,7 @@ module datapath(clk, reset, we,
   
   datamem data_memory(
     .clk(clk),
-    .dmemwe(we),
+    .dmemwe(dmemwe),
     .address(ALUResults),
     .write_data(readData2),
     .read_data(read_data));
