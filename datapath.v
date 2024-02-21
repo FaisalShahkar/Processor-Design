@@ -49,7 +49,7 @@ module datapath(clk, reset, we,
         .readAddr2(Instr[24:20]),
         .writeAddr(Instr[11:7]),
         .writeData(writeData),
-        .we(we),
+        .regwe(we),
         .clk(clk),
         .reset(reset),
         .readData1(readData1),
@@ -58,7 +58,7 @@ module datapath(clk, reset, we,
   
   datamem data_memory(
     .clk(clk),
-    .we(we),
+    .dmemwe(we),
     .address(ALUResults),
     .write_data(readData2),
     .read_data(read_data));
