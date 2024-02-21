@@ -1,4 +1,4 @@
-module memory_2KB (
+module datamem (
   input wire clk,
   input wire write_enable,
   input wire [10:0] address,
