@@ -58,7 +58,7 @@ module datapath(clk, reset, we,
   
   datamem data_memory(
     .clk(clk),
-    .we(we);
+    .we(we),
     .address(ALUResults),
     .write_data(readData2),
     .read_data(read_data));
