@@ -2,7 +2,7 @@ module controller(inst, ALUControl, regsel, dmemwe,
                      regwe, rs2sel, clk, reset);
 
     // Input & Outputs
-    input wire [31:0]   inst;
+    input wire [31:0]   instr;
     input wire          clk, reset;
 
     output reg [3:0]    ALUControl; 
@@ -12,9 +12,9 @@ module controller(inst, ALUControl, regsel, dmemwe,
     wire [6:0]          opcode, funct7;
     wire [2:0]          funct3;
 
-    assign opcode = inst[6:0];
-    assign funct3 = inst[14:12];
-    assign funct7 = inst[31:25];
+    assign opcode = instr[6:0];
+    assign funct3 = instr[14:12];
+    assign funct7 = instr[31:25];
 
     initial begin
         dmemwe      <= 1'b0;
